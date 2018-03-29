@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.utils.Scaling;
+import com.badlogic.gdx.utils.viewport.ScalingViewport;
 
 
 public class MyGdxGame extends ApplicationAdapter {
@@ -13,8 +15,7 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	@Override
 	public void create () {
-		stage = new Stage();
-		stage.getViewport().setWorldSize(2048,1280);
+		stage = new Stage(new ScalingViewport(Scaling.stretch, 2048,1280));
 
 		Image image = new Image(new Texture("badlogic.jpg"));
 		image.setPosition(0,100);
@@ -27,6 +28,10 @@ public class MyGdxGame extends ApplicationAdapter {
 		BlurActor blurActor = new BlurActor(new Texture("badlogic.jpg"));
 		blurActor.setPosition(600,100);
 		stage.addActor(blurActor);
+
+		GrayActor grayActor = new GrayActor(new Texture("badlogic.jpg"));
+		grayActor.setPosition(900,100);
+		stage.addActor(grayActor);
 
 	}
 	@Override
