@@ -6,6 +6,9 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+/**
+ * 浮雕actor
+ */
 public class EmbossActor extends Actor {
     private ShaderProgram shaderProgram;
     private Texture texture;

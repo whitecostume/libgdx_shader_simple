@@ -1,6 +1,11 @@
 # libgdx_shader_simple
 libgdx shader simple 
  
-**1.water shader**
+**shader**
 
-![shader water screenshot](/screenshot/water.gif)
++ Water
++ Blur
++ Gray
++ Emboss
+
+![shader water screenshot](/screenshot/1.gif)
