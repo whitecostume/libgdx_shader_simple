@@ -18,24 +18,28 @@ public class MyGdxGame extends ApplicationAdapter {
 		stage = new Stage(new ScalingViewport(Scaling.stretch, 2048,1280));
 
 		Image image = new Image(new Texture("badlogic.jpg"));
-		image.setPosition(0,100);
+		image.setPosition(10,400);
 		stage.addActor(image);
 
 		WaterActor waterActor = new WaterActor(new Texture("badlogic.jpg"));
-		waterActor.setPosition(300,100);
+		waterActor.setPosition(300,400);
 		stage.addActor(waterActor);
 
 		BlurActor blurActor = new BlurActor(new Texture("badlogic.jpg"));
-		blurActor.setPosition(600,100);
+		blurActor.setPosition(600,400);
 		stage.addActor(blurActor);
 
 		GrayActor grayActor = new GrayActor(new Texture("badlogic.jpg"));
-		grayActor.setPosition(900,100);
+		grayActor.setPosition(900,400);
 		stage.addActor(grayActor);
 
 		EmbossActor embossActor = new EmbossActor(new Texture("badlogic.jpg"));
-		embossActor.setPosition(1200,100);
+		embossActor.setPosition(1200,400);
 		stage.addActor(embossActor);
+		
+		GlassActor glassActor = new GlassActor(new Texture("badlogic.jpg"));
+		glassActor.setPosition(10,100);
+		stage.addActor(glassActor);
 
 	}
 	@Override
