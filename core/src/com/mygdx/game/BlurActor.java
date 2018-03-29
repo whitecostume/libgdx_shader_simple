@@ -4,23 +4,28 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-/**
- * Created by white on 2018/2/10.
- */
-
-public class WaterActor extends Actor {
-
+//*
+// * 高斯模糊
+// 模糊 0.5
+// 模糊 1.0
+// 细节 -2.0
+// 细节 -5.0
+// 细节 -10.0
+// 边缘 2.0
+// 边缘 5.0
+// 边缘 10.0
+ 
+public class BlurActor extends Actor {
     private ShaderProgram shaderProgram;
     private Texture texture;
-    private float time = 0f;
 
-    public WaterActor(Texture texture){
+    public BlurActor(Texture texture){
         this.texture = texture;
         shaderProgram = new ShaderProgram(Gdx.files.internal("default.vert")
-                ,Gdx.files.internal("water.frag"));
+                ,Gdx.files.internal("blur.frag"));
+
 
         if (shaderProgram.isCompiled() == false)
             throw new IllegalArgumentException("Error compiling shader: " + shaderProgram.getLog());
@@ -31,7 +36,6 @@ public class WaterActor extends Actor {
     @Override
     public void act(float delta) {
         super.act(delta);
-        time += delta;
     }
 
     @Override
@@ -40,14 +44,16 @@ public class WaterActor extends Actor {
         ShaderProgram shader = batch.getShader();
         batch.setShader(shaderProgram);
 
-        shaderProgram.setUniformf("time",time);
 
         float x = getX();
         float y = getY();
+        float width = texture.getWidth();
+        float height = texture.getHeight();
+        shaderProgram.setUniformf("widthStep",1/width);
+        shaderProgram.setUniformf("heightStep",1/height);
+        shaderProgram.setUniformf("strength",1f);
 
-        shaderProgram.setUniformf("resolution",
-                new Vector2(texture.getWidth(),(texture.getHeight())));
-        batch.draw(texture,x,y,texture.getWidth(),texture.getHeight());
+        batch.draw(texture,x,y,width,height);
 
 
         batch.setShader(shader);

@@ -5,6 +5,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 
 
 public class MyGdxGame extends ApplicationAdapter {
@@ -12,14 +13,20 @@ public class MyGdxGame extends ApplicationAdapter {
 
 	@Override
 	public void create () {
-
-
 		stage = new Stage();
-		stage.getViewport().setWorldSize(1280,720);
+		stage.getViewport().setWorldSize(2048,1280);
+
+		Image image = new Image(new Texture("badlogic.jpg"));
+		image.setPosition(0,100);
+		stage.addActor(image);
 
 		WaterActor waterActor = new WaterActor(new Texture("badlogic.jpg"));
-		waterActor.setPosition(100,100);
+		waterActor.setPosition(300,100);
 		stage.addActor(waterActor);
+
+		BlurActor blurActor = new BlurActor(new Texture("badlogic.jpg"));
+		blurActor.setPosition(600,100);
+		stage.addActor(blurActor);
 
 	}
 	@Override
