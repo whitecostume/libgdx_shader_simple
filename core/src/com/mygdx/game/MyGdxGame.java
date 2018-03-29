@@ -33,6 +33,10 @@ public class MyGdxGame extends ApplicationAdapter {
 		grayActor.setPosition(900,100);
 		stage.addActor(grayActor);
 
+		EmbossActor embossActor = new EmbossActor(new Texture("badlogic.jpg"));
+		embossActor.setPosition(1200,100);
+		stage.addActor(embossActor);
+
 	}
 	@Override
 	public void render () {
