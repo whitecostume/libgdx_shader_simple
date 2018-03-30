@@ -36,7 +36,7 @@ public class MyGdxGame extends ApplicationAdapter {
 		EmbossActor embossActor = new EmbossActor(new Texture("badlogic.jpg"));
 		embossActor.setPosition(1200,400);
 		stage.addActor(embossActor);
-		
+
 		GlassActor glassActor = new GlassActor(new Texture("badlogic.jpg"));
 		glassActor.setPosition(10,100);
 		stage.addActor(glassActor);

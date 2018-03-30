@@ -2,6 +2,7 @@
 precision mediump float;
 #endif
 varying vec2 v_texCoords;
+varying vec4 v_color;
 uniform float widthStep;
 uniform float heightStep;
 uniform float blurRadiusScale;
@@ -13,7 +14,8 @@ float random(vec3 scale, float seed) {
 }
 void main()
 {
-    vec3 sumColor = vec3(0.0, 0.0, 0.0);  
+    vec3 sumColor = vec3(0.0, 0.0, 0.0);
+     vec4 v = texture2D(u_texture, v_texCoords);
     for(float fy = -blurRadius; fy <= blurRadius; ++fy)
     {
         float dir = random(vec3(12.9898, 78.233, 151.7182), 0.0);
@@ -24,5 +26,5 @@ void main()
             sumColor += texture2D(u_texture, v_texCoords + coord).rgb;
         }
     }
-    gl_FragColor = vec4(sumColor / blurPixels, 1.0);
+    gl_FragColor = vec4(sumColor / blurPixels, v.a * v_color.a);
 }
