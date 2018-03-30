@@ -41,6 +41,10 @@ public class MyGdxGame extends ApplicationAdapter {
 		glassActor.setPosition(10,100);
 		stage.addActor(glassActor);
 
+		InkActor inkActor = new InkActor(new Texture("badlogic.jpg"));
+		inkActor.setPosition(300,100);
+		stage.addActor(inkActor);
+
 	}
 	@Override
 	public void render () {
