@@ -16,7 +16,7 @@ public class InkActor extends Actor {
     private ShaderProgram shaderProgram;
     private Texture texture;
     private float time = 0f;
-    private float Max_Rad = 0f;
+    private float Max_Rad = 1f;
 
     public InkActor(Texture texture){
         this.texture = texture;
@@ -26,14 +26,13 @@ public class InkActor extends Actor {
 
         if (shaderProgram.isCompiled() == false)
             throw new IllegalArgumentException("Error compiling shader: " + shaderProgram.getLog());
-        Max_Rad  = (float) Math.sqrt(Math.pow(texture.getWidth(),2)+Math.pow(texture.getHeight(),2))/2;
 
     }
 
     @Override
     public void act(float delta) {
         super.act(delta);
-        time += delta;
+        time += (delta/3f);
     }
 
 
@@ -48,15 +47,14 @@ public class InkActor extends Actor {
         float y = getY();
         float width = texture.getWidth();
         float height = texture.getHeight();
-        float rad = time * 30;
-        if(rad>=Max_Rad){
+        if(time>=Max_Rad){
             time = 0;
-            rad = 0;
         }
-        shaderProgram.setUniformf("m_fSpotLightRadius",rad);
-        shaderProgram.setUniformf("orginPos",new Vector2(width/2,height/2));
+        shaderProgram.setUniformf("u_lightPosition",new Vector2(0.5f,0.5f));
 
-        shaderProgram.setUniformf("resolution", new Vector2(width,height));
+        shaderProgram.setUniformf("u_lightColor", .0f,.0f,.0f,1.0f);
+
+        shaderProgram.setUniformf("u_lightRange",time);
 
         batch.draw(texture,x,y,width,height);
 

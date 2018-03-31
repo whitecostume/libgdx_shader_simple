@@ -11,7 +11,6 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
         classpath 'com.mobidevelop.robovm:robovm-gradle-plugin:2.3.3'
-        
 
     }
 }
@@ -81,6 +80,7 @@ project(":ios") {
         
     }
 }
+
 
 project(":core") {
     apply plugin: "java"
