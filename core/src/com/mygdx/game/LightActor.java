@@ -42,7 +42,7 @@ public class LightActor extends Actor {
 
         shaderProgram.setUniformf("u_lightPosition",new Vector2(0.5f,0.5f));
 
-        shaderProgram.setUniformf("u_lightColor", 1f,1f,1f,1f);
+        shaderProgram.setUniformf("u_lightColor", 1.0f,1.0f,1.0f,1.0f);
 
         shaderProgram.setUniformf("u_lightRange",0.5f);
 
