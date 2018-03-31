@@ -7,7 +7,6 @@ precision mediump float;
 
 varying LOWP vec4 v_color;
 varying vec2 v_texCoords;
-varying vec4 v_position;
 
 
 uniform sampler2D u_texture;

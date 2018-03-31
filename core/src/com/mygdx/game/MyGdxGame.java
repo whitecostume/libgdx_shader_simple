@@ -45,6 +45,10 @@ public class MyGdxGame extends ApplicationAdapter {
 		inkActor.setPosition(300,100);
 		stage.addActor(inkActor);
 
+		LightActor lightActor = new LightActor(new Texture("badlogic.jpg"));
+		lightActor.setPosition(600,100);
+		stage.addActor(lightActor);
+
 	}
 	@Override
 	public void render () {
