@@ -7,5 +7,8 @@ libgdx shader simple
 + Blur
 + Gray
 + Emboss
++ Glass
++ Ink
++ Light
 
 ![shader water screenshot](/screenshot/1.gif)
