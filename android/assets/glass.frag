@@ -7,7 +7,7 @@ uniform float widthStep;
 uniform float heightStep;
 uniform float blurRadiusScale;
 uniform sampler2D u_texture;
-const float blurRadius = 6.0;
+const float blurRadius = 3.0;
 const float blurPixels = (blurRadius * 2.0 + 1.0) * (blurRadius * 2.0 + 1.0);
 float random(vec3 scale, float seed) {
     return fract(sin(dot(gl_FragCoord.xyz + seed, scale)) * 43758.5453 + seed);
