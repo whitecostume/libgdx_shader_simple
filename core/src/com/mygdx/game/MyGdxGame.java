@@ -49,6 +49,14 @@ public class MyGdxGame extends ApplicationAdapter {
 		lightActor.setPosition(600,100);
 		stage.addActor(lightActor);
 
+		OutLineActor outLineActor = new OutLineActor(new Texture("Idle.png"));
+		outLineActor.setPosition(10,700);
+		stage.addActor(outLineActor);
+
+		ShadowActor shadowActor = new ShadowActor(new Texture("Idle.png"));
+		shadowActor.setPosition(300,700);
+		stage.addActor(shadowActor);
+
 	}
 	@Override
 	public void render () {
