@@ -57,10 +57,15 @@ public class MyGdxGame extends ApplicationAdapter {
 		shadowActor.setPosition(300,700);
 		stage.addActor(shadowActor);
 
+		DissolveActor dissolveActor = new DissolveActor(new Texture("badlogic.jpg")
+				,new Texture("noisetexture.png"));
+		dissolveActor.setPosition(600,700);
+		stage.addActor(dissolveActor);
+
 	}
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		Gdx.gl.glClearColor(0, 0, 1, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		stage.act();
